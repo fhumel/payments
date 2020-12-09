@@ -5,116 +5,167 @@
 
 **Request Payload (application/json):**
 ```
-   {
-       "name": "Fernando",
-       "document": "558.895.950-75",
-       "email": "teste@gmail.com",
-       "type": "comum"
-   }
+    {
+        "name": "Fernando",
+        "cpf": "421.738.448-30,",
+        "email": "fhumel@hotmail.com",
+        "password": "123456",
+        "type": "comum"
+    }
 
-   {
-       "name": "Loja",
-       "document": "86.681.871/0001-33",
-       "email": "lojateste@gmail.com",
-       "type": "lojista"
-   }
+    {
+        "name": "Loja",
+        "cpf": "421.738.448-30,",
+        "email": "fhumel@hotmail.com",
+        "password": "123456",
+        "type": "logista"
+    }
 ```
 
 **Response (201 - Created):**
 ```
 {
     "id": "30c23497-a39b-4234-8e31-e9b3210d4c73",
-    "document": "558.895.950-75",
-    "name": "Rafael",
-    "email": "to1433433t@gmail.com",
-    "type": "user"
+    "cpf": "558.895.950-75",
+    "name": "Fernando",
+    "email": "fhumel@hotmail.com",
+    "type": "comum"
 }
 ```
 
-**Response (400 - Bad Request):**
+**Response (422 - Unprocessable Entity):**
 ```
 {
     "errors": {
+        "cpf": [
+            "The cpf has already been taken.",
+            "The cpf may not be greater than 14 characters."
+        ],
         "email": [
             "The email has already been taken."
         ],
-        "cpf": [
-            "The document has already been taken."
+        "type": [
+            "The type must be an integer."
         ]
     }
 }
 ```
 
-**Response (422 - Unprocessable Entity):**
-```
-{
-    "error": "Invalid Document"
-}
-```
-
-**Response (422 - Unprocessable Entity):**
-```
-{
-    "error": "Invalid E-mail"
-}
-```
+**Método:** `POST`
 
 **Endpoint:** `/deposit`
 
 **Request Payload (application/json):**
 ```
 {
-    "userId": "30c23497-a39b-4234-8e31-e9b3210d4c73",
-    "value": 2000.93
+    "id": 2,
+    "money": 100.10
 }
 ```
 
 **Response (200 - OK):**
 ```
 {
-    "userId": "30c23497-a39b-4234-8e31-e9b3210d4c73",
-    "balance": 2000.93
+    "codigo": 201,
+    "descricao": "Valor depositado com sucesso.",
+    "money": 800.1,
+    "tranferId": 2
 }
 ```
 
-**Response (404 - Not found):**
-```
-{
-    "errors": "Usuário não existe"
-}
-```
+**Método:** `POST`
 
 **Endpoint:** `/transaction`
 
 **Request Payload (application/json):**
 ```
 {
-    "payer": "30c23497-a39b-4234-8e31-e9b3210d4c73",
-    "payee": "2f5f8fa1-f14f-4997-aa5c-8ddf6e5c9908",
-    "value": 500.47
+    "value": 0.2,
+    "payee": 3,
+    "payer": 2
 }
 ```
 
 **Response (200 - OK):**
 ```
 {
-    "id": "39e3e803-34f8-46f1-a7a8-42ee75ba06b5",
-    "payee": "2f5f8fa1-f14f-4997-aa5c-8ddf6e5c9908",
-    "payer": "30c23497-a39b-4234-8e31-e9b3210d4c73",
-    "value": 500.47
+    "descricao" => "Valor transferido com sucesso.",
+    "money" => 510.20,
+}
+```
+**Método:** `GET`
+
+**Endpoint:** `/balance`
+
+**Request Payload (application/json):**
+```
+{
+    "id": 1
 }
 ```
 
-**Response (400 - Bad Request):**
+**Response (200 - OK):**
 ```
 {
-    "errors": Não é possível transferir dinheiro para você mesmo!"
+    "codigo": 302,
+    "descricao": "Carteira listada com sucesso.",
+    "wallet": {
+        "id": 1,
+        "money": "3.600",
+        "created_at": "2020-12-08T20:39:03.000000Z",
+        "updated_at": "2020-12-08T20:39:03.000000Z"
+    }
 }
 ```
 
-**Response (404 - Not Found):**
+**Método:** `GET`
+
+**Endpoint:** `/transaction`
+
+**Request Payload (application/json):**
 ```
 {
-    "errors": User not found"
+    "id": 1
 }
 ```
+
+**Response (200 - OK):**
+```
+{
+    "codigo": 302,
+    "descricao": "Carteira listada com sucesso.",
+    "wallet": {
+        "id": 1,
+        "money": "3.600",
+        "created_at": "2020-12-08T20:39:03.000000Z",
+        "updated_at": "2020-12-08T20:39:03.000000Z"
+    }
+}
+```
+
+**Método:** `GET`
+
+**Endpoint:** `/list`
+
+**Request Payload (application/json):**
+```
+{
+}
+```
+
+**Response (200 - OK):**
+```
+[
+    {
+        "id": 1,
+        "name": "lucas",
+        "cpf": "1540123d2sd3dddd00",
+        "email": "lucas@hddotmdaddsdiil.com",
+        "wallet_id": 12,
+        "type": 1,
+        "created_at": "2020-12-08T20:47:06.000000Z",
+        "updated_at": "2020-12-08T20:47:06.000000Z"
+    }
+]
+```
+
