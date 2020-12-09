@@ -30,7 +30,6 @@ class UserController extends Controller
         $this->userMapper = $userMapper;
     }
 
-
     /**
      * @inheritDoc
      */

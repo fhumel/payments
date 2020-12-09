@@ -2,6 +2,8 @@
 
 namespace App\Entities\Users;
 
+use App\Domain\Shared\ValueObjects\Cpf;
+
 class UserEntity
 {
     /** @var integer */
@@ -17,7 +19,7 @@ class UserEntity
     private ?string $password = null;
 
     /** @var string */
-    private ?string $cpf = null;
+    private ?Cpf $cpf = null;
 
     /** @var string */
     private ?string $name = null;

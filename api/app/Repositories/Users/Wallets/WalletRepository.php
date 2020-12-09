@@ -6,7 +6,6 @@ use App\Contracts\Users\Wallets\Mappers\WalletMapperInterface;
 use App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface;
 use App\Entities\Users\Wallets\WalletEntity;
 use App\Models\Users\Wallets\Wallet;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 class WalletRepository implements WalletRepositoryInterface

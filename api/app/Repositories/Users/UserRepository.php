@@ -7,7 +7,6 @@ use App\Contracts\Users\Repositories\UserRepositoryInterface;
 use App\Mappers\Transactions\TransactionMapper;
 use App\Mappers\Transactions\TransactionMapperInterface;
 use App\Models\Users\User;
-use Illuminate\Support\Collection;
 
 /**
  * Class UserRepository
@@ -64,5 +63,4 @@ class UserRepository implements UserRepositoryInterface
 
         return $users->toArray();
     }
-
 }

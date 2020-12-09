@@ -8,7 +8,6 @@ use App\Contracts\Users\Wallets\Transactions\Repositories\TransactionRepositoryI
 use App\Contracts\Users\Wallets\Transactions\Services\TransactionServiceInterface;
 use App\Models\Users\User;
 use App\Models\Users\Wallets\Transactions\Transaction;
-use App\Models\Users\Wallets\Wallet;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
 
@@ -115,12 +114,10 @@ class TransactionService implements TransactionServiceInterface
                 ['id' => $payer, 'money' => $value]
             );
 
-
             /** @var WalletRepositoryInterface $payee */
             $this->walletRepository->deposit(
                 ['id' => $payee, 'money' => $value]
             );
-
 
             if (!$this->payment()) {
                 abort(
@@ -130,9 +127,7 @@ class TransactionService implements TransactionServiceInterface
             }
 
             return $this->transactionRepository->pay($dados);
-
         });
-
         return $transaction;
     }
 
