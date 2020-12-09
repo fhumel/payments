@@ -42,8 +42,6 @@ class UserMapper implements UserMapperInterface
      */
     public function revert($userEntity): array
     {
-        dd($userEntity);
-
         return [
             'id' => $userEntity->getId(),
             'cpf' => $userEntity->getCpf(),
