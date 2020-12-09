@@ -1,10 +1,10 @@
 mysql/
 
-htdocs/vendor/
-htdocs/.env
-htdocs/composer.lock
-htdocs/html
-htdocs/.idea
+api/vendor/
+api/.env
+api/composer.lock
+api/html
+.idea
 
 nginx/logs/
 nginx/sites/*

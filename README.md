@@ -1,11 +1,13 @@
-# Laradock
+# Payments
 
 Project made for testing the laravel framework with the docker in a transaction application.
 
-  - UnitTest
   - Docker
-  - Laravel
+  - Lumen
   - PHP 7.4
+  
+#### Doc
+[click](api.md)
   
 ### Requires
 
@@ -14,7 +16,7 @@ Project made for testing the laravel framework with the docker in a transaction 
 
 ### Installation
 
-Clone project https://github.com/fhumel/projetoDocker
+Clone project https://github.com/fhumel/payments.git
 
 Install the dependencies of composer
 
@@ -28,27 +30,53 @@ For laravel...
 copy .env.example para .env and config ports and mysql
 
 For docker... 
-/laradock
-copy env-example para .env and config ports and mysql
+config ports and mysql on docker-composer.yml
 
 #### Building for source
 ### Docker
 ```sh
-php artisan migrate
-php artisan key:generate 
+$ php artisan migrate
+$ php artisan key:generate 
+$ php artisan cache:clear
 ```
 
 For production release:
 ```sh
-$ cd laradock
-$ sudo docker-compose up -d nginx mysql phpmyadmin
+$ docker-compose build && docker-compose up -d
+$ docker-compose up -d --force-recreate
 ```
 
 Verify the deployment by navigating to your server address in your preferred browser.
 
 ```sh
-127.0.0.1:8000
+$ 127.0.0.1:8088
 ```
+
+Get ip container
+
+```sh
+$ docker ps
+```
+Add line in /etc/hosts
+
+ip-container-mysql       mysql
+
+### Scripts
+
+Code Style:
+
+PSR-12: composer cs-psr12-check
+
+Code Quality
+
+MassDetector: composer codequality
+Larastan: composer codequality-stan
+
+#### Propostas de melhorias
+Criar interfaces para controller 
+User autenticacao de usuario nas transações
+Filas do s3 para transações.
+Fazer testes Unitarios
 
 License
 ----
