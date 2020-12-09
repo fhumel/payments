@@ -1,9 +1,9 @@
 mysql/
 
-htdocs/vendor/
-htdocs/.env
-htdocs/composer.lock
-htdocs/html
+api/vendor/
+api/.env
+api/composer.lock
+api/html
 .idea
 
 nginx/logs/
