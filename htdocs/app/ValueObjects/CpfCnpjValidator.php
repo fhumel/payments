@@ -66,47 +66,6 @@ trait CpfCnpjValidator
 
     /**
      * @param string|null $number
-     * @return bool
-     * @throws \App\Exceptions\InvalidDocumentException
-     * @SuppressWarnings(PHPMD)
-     */
-    public static function isValidCnpj(?string $number): bool
-    {
-        self::verifyIsNull($number);
-
-        $number = preg_replace("/[^0-9]/", "", $number);
-
-        if (strlen($number) != 14) {
-            return false;
-        }
-
-        if (filter_var($number, FILTER_VALIDATE_REGEXP, ['options' => ['regexp' => '/(\d)\1{13}/']]) !== false) {
-            return false;
-        }
-
-        for ($i = 0, $j = 5, $sum = 0; $i < 12; $i++) {
-            $sum += $number[$i] * $j;
-            $j = ($j == 2) ? 9 : $j - 1;
-        }
-
-        $rest = $sum % 11;
-
-        if ($number[12] != ($rest < 2 ? 0 : 11 - $rest)) {
-            return false;
-        }
-
-        for ($i = 0, $j = 6, $sum = 0; $i < 13; $i++) {
-            $sum += $number[$i] * $j;
-            $j = ($j == 2) ? 9 : $j - 1;
-        }
-
-        $rest = $sum % 11;
-
-        return $number[13] == ($rest < 2 ? 0 : 11 - $rest);
-    }
-
-    /**
-     * @param string|null $number
      * @throws \App\Exceptions\InvalidDocumentException
      */
     private static function verifyIsNull(?string $number)

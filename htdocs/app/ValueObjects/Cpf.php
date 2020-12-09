@@ -8,12 +8,11 @@ use App\Exceptions\InvalidDocumentException;
  * Class Document
  * @package App\Domain\Shared\ValueObjects
  */
-final class Document
+final class Cpf
 {
     use CpfCnpjValidator;
 
     public const TYPE_CPF = 'cpf';
-    public const TYPE_CNPJ = 'cnpj';
 
     protected string $number;
     protected string $type;
@@ -29,12 +28,6 @@ final class Document
 
         if (self::isValidCpf($number)) {
             $this->setTypeCpf();
-
-            return;
-        }
-
-        if (self::isValidCnpj($number)) {
-            $this->setTypeCnpj();
 
             return;
         }
@@ -69,13 +62,5 @@ final class Document
     private function setTypeCpf(): void
     {
         $this->type = self::TYPE_CPF;
-    }
-
-    /**
-     * @return void
-     */
-    private function setTypeCnpj(): void
-    {
-        $this->type = self::TYPE_CNPJ;
     }
 }

@@ -12,7 +12,7 @@ class UserRequest extends Controller
         $this->validate(
             $request, [
                 'name' => 'required|string|max:200',
-                'cpf' => 'required|string|unique:users,document|max:14',
+                'cpf' => 'required|string|unique:users,cpf|max:14',
                 'email' => 'required|string|unique:users,email|max:120',
                 'type' => 'required|integer'
             ]
