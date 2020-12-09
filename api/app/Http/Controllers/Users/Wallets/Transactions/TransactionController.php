@@ -44,8 +44,6 @@ class TransactionController extends Controller
                 Response::HTTP_CREATED
             );
         } catch (\Exception $exception) {
-
-            dd($exception->getMessage());
             /** @var int $statusCode */
             $statusCode = $exception instanceof HttpException
                 ? $exception->getStatusCode() : Response::HTTP_BAD_REQUEST;
@@ -70,7 +68,6 @@ class TransactionController extends Controller
                 Response::HTTP_FOUND
             );
         } catch (\Exception $exception) {
-            dd($exception->getMessage());
             /** @var int $statusCode */
             $statusCode = $exception instanceof HttpException
                 ? $exception->getStatusCode() : Response::HTTP_BAD_REQUEST;
