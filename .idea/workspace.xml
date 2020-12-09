@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0a5fdabf-4abb-46ac-8b42-b4af9649c404" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.styleci.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Http/Services/ClientServiceInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Users/Mappers/UserMapperInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Users/Repositories/UserRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Users/Services/UserServiceInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Users/Wallets/Mappers/WalletMapperInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Users/Wallets/Repositories/WalletRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Users/Wallets/Services/WalletServiceInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Users/Wallets/Transactions/Mappers/TransactionMapperInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Users/Wallets/Transactions/Repositories/TransactionRepositoryInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Contracts/Users/Wallets/Transactions/Services/TransactionServiceInterface.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entities/Users/UserEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entities/Users/Wallets/Transactions/TransactionEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Entities/Users/Wallets/WalletEntity.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/Event.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/ExampleEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/UserController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/Wallets/Transactions/TransactionController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Users/Wallets/WalletController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/ExampleMiddleware.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/DefaultRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Users/UserRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Users/Wallets/Transactions/TransactionRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Users/Wallets/WalletRequest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/ExampleJob.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/Job.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/ExampleListener.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mappers/Users/Factories/UserMapperFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mappers/Users/UserMapper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mappers/Users/Wallets/Factories/WalletMapperFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mappers/Users/Wallets/Transactions/Factories/TransactionMapperFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mappers/Users/Wallets/Transactions/TransactionMapper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mappers/Users/Wallets/WalletMapper.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Users/User.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Users/Wallets/Transactions/Transaction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Users/Wallets/Wallet.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/Users/UserServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/Users/Wallets/Transactions/TransactionServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/Users/Wallets/WalletServiceProvider.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Users/Factories/UserRepositoryFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Users/UserRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Users/Wallets/Factories/WalletRepositoryFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Users/Wallets/Transactions/Factories/TransactionRepositoryFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Users/Wallets/Transactions/TransactionRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Repositories/Users/Wallets/WalletRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Users/Factories/UserServiceFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Users/UserService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Users/Wallets/Factories/WalletServiceFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Users/Wallets/Transactions/Factories/TransactionServiceFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Users/Wallets/Transactions/TransactionService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/Users/Wallets/WalletService.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ValueObjects/CpfCnpjValidator.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ValueObjects/Document.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ValueObjects/Email.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/artisan" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/app.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_07_162640_create_wallet_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_07_162641_create_users_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_12_07_162723_create_transaction_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/ContaSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/app/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/cache/data/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/framework/views/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/logs/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ExampleTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/api/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/api/vendor/classpreloader/classpreloader" />
+      <path value="$PROJECT_DIR$/api/vendor/laravel/lumen-framework" />
+      <path value="$PROJECT_DIR$/api/vendor/nikic/fast-route" />
+      <path value="$PROJECT_DIR$/api/vendor/opis/closure" />
+      <path value="$PROJECT_DIR$/api/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/api/vendor/dnoegel/php-xdg-base-dir" />
+      <path value="$PROJECT_DIR$/api/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/api/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/api/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/api/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/api/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/api/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/api/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/api/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/api/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/api/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/api/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/api/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/api/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/http" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/macroable" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/testing" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/log" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/collections" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/broadcasting" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/pipeline" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/session" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/translation" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/events" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/cache" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/encryption" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/console" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/database" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/bus" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/container" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/auth" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/validation" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/filesystem" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/support" />
+      <path value="$PROJECT_DIR$/api/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/hashing" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/queue" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/view" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/pagination" />
+      <path value="$PROJECT_DIR$/api/vendor/illuminate/config" />
+      <path value="$PROJECT_DIR$/api/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/api/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/api/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/api/vendor/composer" />
+      <path value="$PROJECT_DIR$/api/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/api/vendor/flipbox/lumen-generator" />
+      <path value="$PROJECT_DIR$/api/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/api/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/api/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/api/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/api/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/api/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/api/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/api/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/api/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/api/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/api/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/api/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/api/vendor/brick/math" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1lASEVpUCUNwKbHEdNB54sSdTQT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/htdocs" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/htdocs" />
+      <recent name="$PROJECT_DIR$/htdocs/app/Providers/Users/Wallets/WalletType" />
+      <recent name="$PROJECT_DIR$/htdocs/app/Providers/Users/Wallets" />
+      <recent name="$PROJECT_DIR$/htdocs/app/Providers/Users" />
+      <recent name="$PROJECT_DIR$/htdocs/app/Http/Controllers/Users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/htdocs/app/Http/Controllers" />
+      <recent name="$PROJECT_DIR$/htdocs/app/Services/Users/Wallets" />
+      <recent name="$PROJECT_DIR$/htdocs/app/Services/Users" />
+      <recent name="$PROJECT_DIR$/htdocs/app/Repositories/Users" />
+      <recent name="$PROJECT_DIR$/htdocs/app/Repositories/Wallets" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a5fdabf-4abb-46ac-8b42-b4af9649c404" name="Default Changelist" comment="" />
+      <created>1607038290751</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607038290751</updated>
+      <workItem from="1607038291796" duration="7761000" />
+      <workItem from="1607046072860" duration="17350000" />
+      <workItem from="1607354055989" duration="70806000" />
+    </task>
+    <task id="LOCAL-00001" summary="removendo arquivos indesejados">
+      <created>1607045136225</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607045136225</updated>
+    </task>
+    <task id="LOCAL-00002" summary="adicionando pasta">
+      <created>1607045196678</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607045196678</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ajuste do gitignore">
+      <created>1607045413049</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607045413049</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ajuste do gitignore e artefatos">
+      <created>1607386944157</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607386944157</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ajuste de rotas">
+      <created>1607387307125</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607387307125</updated>
+    </task>
+    <task id="LOCAL-00006" summary="funcao de transferir">
+      <created>1607469008015</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607469008015</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="removendo arquivos indesejados" />
+    <MESSAGE value="adicionando pasta" />
+    <MESSAGE value="ajuste do gitignore" />
+    <MESSAGE value="ajuste do gitignore e artefatos" />
+    <MESSAGE value="ajuste de rotas" />
+    <MESSAGE value="funcao de transferir" />
+    <option name="LAST_COMMIT_MESSAGE" value="funcao de transferir" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="130" y="348" width="976" height="424" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607364522795">
+      <screen x="0" y="34" width="3520" height="1046" />
+    </state>
+    <state x="467" y="348" width="976" height="424" key="#com.intellij.fileTypes.FileTypeChooser/0.34.1920.1046@0.34.1920.1046" timestamp="1607358406681" />
+    <state x="130" y="348" key="#com.intellij.fileTypes.FileTypeChooser/0.34.3520.1046@0.34.3520.1046" timestamp="1607364522795" />
+    <state x="1043" y="226" width="513" height="599" key="#com.intellij.ide.util.MemberChooser" timestamp="1607428859877">
+      <screen x="0" y="34" width="3520" height="1046" />
+    </state>
+    <state x="716" y="226" width="478" height="668" key="#com.intellij.ide.util.MemberChooser/0.34.1920.1046@0.34.1920.1046" timestamp="1607101553027" />
+    <state x="1043" y="226" width="513" height="599" key="#com.intellij.ide.util.MemberChooser/0.34.3520.1046@0.34.3520.1046" timestamp="1607428859877" />
+    <state x="486" y="93" width="928" height="940" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1607387613964">
+      <screen x="0" y="34" width="3520" height="1046" />
+    </state>
+    <state x="486" y="93" width="928" height="940" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.34.3520.1046@0.34.3520.1046" timestamp="1607387613964" />
+    <state x="693" y="315" width="524" height="490" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607460965082">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="693" y="315" width="524" height="490" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1607460965082" />
+    <state x="959" y="315" width="524" height="490" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.34.3520.1046@0.34.3520.1046" timestamp="1607429358554" />
+    <state x="360" y="34" width="1920" height="1046" key="CommitChangelistDialog2" timestamp="1607469007929">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="360" y="34" width="1190" height="1046" key="CommitChangelistDialog2/0.34.1920.1046@0.34.1920.1046" timestamp="1607469007929" />
+    <state x="0" y="34" width="1920" height="1046" key="CommitChangelistDialog2/0.34.3520.1046@0.34.3520.1046" timestamp="1607387304647" />
+    <state x="691" y="315" key="FileChooserDialogImpl" timestamp="1607344492751">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="691" y="315" key="FileChooserDialogImpl/0.34.1920.1046@0.34.1920.1046" timestamp="1607344492751" />
+    <state x="711" y="173" width="487" height="774" key="RollbackChangesDialog" timestamp="1607043008361">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="711" y="173" width="487" height="774" key="RollbackChangesDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1607043008361" />
+    <state x="688" y="44" width="540" height="524" key="StructurePopup" timestamp="1607453210968">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="688" y="44" width="540" height="524" key="StructurePopup/0.34.1920.1046@0.34.1920.1046" timestamp="1607453210968" />
+    <state x="555" y="274" width="800" height="572" key="Vcs.Push.Dialog.v2" timestamp="1607469009165">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="555" y="274" width="800" height="572" key="Vcs.Push.Dialog.v2/0.34.1920.1046@0.34.1920.1046" timestamp="1607469009165" />
+    <state x="453" y="274" width="800" height="572" key="Vcs.Push.Dialog.v2/0.34.3520.1046@0.34.3520.1046" timestamp="1607387308237" />
+    <state x="-567" y="110" width="1720" height="846" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1607458667044">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="-567" y="110" width="1720" height="846" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1607458667044" />
+    <state x="-344" y="138" width="1720" height="846" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.34.3520.1046@0.34.3520.1046" timestamp="1607415759810" />
+    <state x="609" y="235" width="952" height="770" key="find.popup" timestamp="1607470699028">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="609" y="235" width="952" height="770" key="find.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1607470699028" />
+    <state x="475" y="190" width="1139" height="742" key="find.popup/0.34.3520.1046@0.34.3520.1046" timestamp="1607432956891" />
+    <state x="624" y="253" key="run.anything.popup" timestamp="1607365922455">
+      <screen x="0" y="34" width="3520" height="1046" />
+    </state>
+    <state x="624" y="253" key="run.anything.popup/0.34.3520.1046@0.34.3520.1046" timestamp="1607365922455" />
+    <state x="623" y="264" width="672" height="679" key="search.everywhere.popup" timestamp="1607470580860">
+      <screen x="0" y="34" width="1920" height="1046" />
+    </state>
+    <state x="623" y="264" width="672" height="679" key="search.everywhere.popup/0.34.1920.1046@0.34.1920.1046" timestamp="1607470580860" />
+    <state x="1142" y="264" width="1232" height="679" key="search.everywhere.popup/0.34.3520.1046@0.34.3520.1046" timestamp="1607432878697" />
+    <state x="865" y="421" width="575" height="194" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1607365289012">
+      <screen x="0" y="34" width="3520" height="1046" />
+    </state>
+    <state x="667" y="421" width="575" height="278" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.34.1920.1046@0.34.1920.1046" timestamp="1607360890717" />
+    <state x="865" y="421" width="575" height="194" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.34.3520.1046@0.34.3520.1046" timestamp="1607365289012" />
+  </component>
+</project>
