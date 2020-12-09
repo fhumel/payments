@@ -61,6 +61,22 @@ Add line in /etc/hosts
 
 ip-container-mysql       mysql
 
+### Scripts
+
+Code Style:
+
+PSR-12: composer cs-psr12-check
+
+Code Quality
+
+MassDetector: composer codequality
+Larastan: composer codequality-stan
+
+#### Propostas de melhorias
+Criar interfaces para controller 
+User autenticacao de usuario nas transações
+Filas do s3 para transações.
+Fazer testes Unitarios
 
 License
 ----
