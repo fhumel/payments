@@ -4,7 +4,7 @@ htdocs/vendor/
 htdocs/.env
 htdocs/composer.lock
 htdocs/html
-htdocs/.idea
+.idea
 
 nginx/logs/
 nginx/sites/*
