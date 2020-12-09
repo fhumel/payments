@@ -46,14 +46,19 @@ class TransactionService implements TransactionServiceInterface
      */
     public function authorize(): bool
     {
+
         $client = new Client();
-        $response = $client->request('GET', env('AUTHORIZER'));
 
-        dd($response);
-        $statusCode = $response->getStatusCode();
-        $body = $response->getBody()->getContents();
+        $response =     $client->request('GET', env('AUTHORIZER'));
 
-        return $body;
+        $body = \GuzzleHttp\json_decode($response->getBody()->getContents());
+
+        $mensage = $body->message;
+
+        if ($mensage !== 'Autorizado') {
+                return false;
+            }
+        return true;
     }
 
     /**
@@ -61,14 +66,20 @@ class TransactionService implements TransactionServiceInterface
      */
     public function payment(): bool
     {
+
         $client = new Client();
+
         $response = $client->request('GET', env('PAYMENT'));
 
-        dd($response);
-        $statusCode = $response->getStatusCode();
-        $body = $response->getBody()->getContents();
+        $body = \GuzzleHttp\json_decode($response->getBody()->getContents());
 
-        return $body;
+        $mensage = $body->message;
+
+        if ($mensage !== 'Enviado') {
+            return false;
+        }
+
+        return true;
     }
 
     /**
