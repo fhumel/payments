@@ -2,7 +2,6 @@
 
 namespace App\Repositories\Users\Wallets\Transactions\Factories;
 
-
 use App\Contracts\Users\Wallets\Transactions\Mappers\TransactionMapperInterface;
 use App\Models\Users\Wallets\Transactions\Transaction;
 use App\Repositories\Users\Wallets\Transactions\TransactionRepository;

@@ -35,12 +35,6 @@ class TransactionController extends Controller
             /** @var WalletEntity $entidade */
             $entidade = $this->transactionService->pay($dados);
 
-            dd($entidade);
-
-            if ($entidade) {
-                //gerar um log de transaferencia
-            }
-
             return response()->json(
                 [
                     "codigo" => Response::HTTP_CREATED,
@@ -64,6 +58,7 @@ class TransactionController extends Controller
 
     /**
      * @inheritDoc
+     * return JsonResponse
      */
     public function list(): JsonResponse
     {

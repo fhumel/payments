@@ -13,8 +13,8 @@ class UserRequest extends Controller
             $request, [
                 'name' => 'required|string|max:200',
                 'cpf' => 'required|string|unique:users,cpf|max:14',
-                'email' => 'required|string|unique:users,email|max:120',
-                'type' => 'required|integer'
+                'email' => 'required|email|string|unique:users,email|max:150',
+                'type' => 'required|string'
             ]
         );
 

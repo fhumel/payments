@@ -5,12 +5,9 @@ namespace App\Services\Users\Wallets;
 use App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface;
 use App\Contracts\Users\Wallets\Services\WalletServiceInterface;
 use App\Entities\Users\Wallets\WalletEntity;
-use App\Models\Users\Wallets\Wallet;
-use Illuminate\Support\Collection;
 
 class WalletService implements WalletServiceInterface
 {
-
 
     /** @var \App\Repositories\Wallets\WalletRepositoryInterface */
     private $walletRepository;

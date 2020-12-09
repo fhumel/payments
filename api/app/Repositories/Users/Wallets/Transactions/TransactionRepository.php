@@ -6,7 +6,6 @@ use App\Contracts\Users\Wallets\Transactions\Repositories\TransactionRepositoryI
 use App\Mappers\Transactions\TransactionMapper;
 use App\Mappers\Transactions\TransactionMapperInterface;
 use App\Models\Users\Wallets\Transactions\Transaction;
-use Illuminate\Support\Collection;
 
 class TransactionRepository implements TransactionRepositoryInterface
 {
@@ -34,5 +33,4 @@ class TransactionRepository implements TransactionRepositoryInterface
 
         return $transaction;
     }
-
 }
