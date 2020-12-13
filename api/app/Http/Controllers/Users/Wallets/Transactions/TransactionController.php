@@ -12,6 +12,11 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 class TransactionController extends Controller
 {
     /**
+     * @var \App\Contracts\Users\Wallets\Transactions\Services\TransactionServiceInterface
+     */
+    private $transactionService;
+
+    /**
      * TransactionController constructor.
      *
      * @param TransactionServiceInterface $transactionService
@@ -64,7 +69,8 @@ class TransactionController extends Controller
             /** @var \App\Entities\Users\Wallets\Transactions\TransactionEntity $entidade */
             $colecao = $this->transactionService->list();
 
-            return response()->json($colecao,
+            return response()->json(
+                $colecao,
                 Response::HTTP_FOUND
             );
         } catch (\Exception $exception) {

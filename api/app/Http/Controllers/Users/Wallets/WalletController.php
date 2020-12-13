@@ -3,13 +3,19 @@
 namespace App\Http\Controllers\Users\Wallets;
 
 use App\Contracts\Users\Wallets\Services\WalletServiceInterface;
+use App\Entities\Users\Wallets\WalletEntity;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\Wallets\WalletRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 
-class WalletController  extends Controller
+class WalletController extends Controller
 {
+    /**
+     * @var \App\Contracts\Users\Wallets\Services\WalletServiceInterface
+     */
+    private WalletServiceInterface $walletService;
+
     /**
      * TransferController constructor.
      *
@@ -22,7 +28,7 @@ class WalletController  extends Controller
     }
 
     /**
-     * @param WalletRequest $transactionRequest
+     * @param \App\Http\Requests\Users\Wallets\WalletRequest $request
      * @return JsonResponse
      */
     public function deposit(WalletRequest $request): JsonResponse
@@ -63,7 +69,7 @@ class WalletController  extends Controller
      * @param \App\Http\Requests\Users\Wallets\WalletRequest $request
      * @return \App\Http\Controllers\Users\Wallets\Illuminate\Http\JsonResponse
      */
-    public function balance(WalletRequest $request ): JsonResponse
+    public function balance(WalletRequest $request): JsonResponse
     {
         try {
             $dados = $request->getParams()->all();

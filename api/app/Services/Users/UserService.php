@@ -10,23 +10,23 @@ use App\Models\Users\User;
 class UserService implements UserServiceInterface
 {
 
-    /** @var \App\Repositories\Users\UserRepositoryInterface */
+    /** @var \App\Contracts\Users\Repositories\UserRepositoryInterface */
     private $userRepository;
     /**
-     * @var \App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface|\App\Repositories\Users\Wallets\WalletRepositoryInterface
+     * @var \App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface
      */
     private $walletRepository;
 
     /**
      * UsuarioService constructor.
      *
-     * @param \App\Repositories\Users\UserRepositoryInterface $userRepository
-     * @param \App\Repositories\Users\Wallets\WalletRepositoryInterface $walletRepository
+     * @param \App\Contracts\Users\Repositories\UserRepositoryInterface $userRepository
+     * @param \App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface $walletRepository
      */
     public function __construct(
         UserRepositoryInterface $userRepository,
-        WalletRepositoryInterface $walletRepository)
-    {
+        WalletRepositoryInterface $walletRepository
+    ) {
         $this->userRepository = $userRepository;
         $this->walletRepository = $walletRepository;
     }
@@ -39,13 +39,14 @@ class UserService implements UserServiceInterface
 
         $dados['wallet']['money'] = 0;
 
-        $walletId = $this->walletRepository->create( $dados['wallet']);
+        $walletId = $this->walletRepository->create($dados['wallet']);
 
         $insertedId = $walletId->id;
 
         $dados['wallet_id'] = $insertedId;
 
-        $dados['type'] = ($dados['type'] == 'logista' ? UserRepositoryInterface::LOGISTA : UserRepositoryInterface::COMUM);
+        $dados['type'] = ($dados['type'] == 'logista' ? UserRepositoryInterface::LOGISTA :
+            UserRepositoryInterface::COMUM);
 
 
         unset($dados['wallet']);
@@ -53,7 +54,6 @@ class UserService implements UserServiceInterface
         $user = $this->userRepository->create($dados);
 
         return $user;
-
     }
 
     /**
@@ -63,5 +63,4 @@ class UserService implements UserServiceInterface
     {
         return $this->userRepository->list();
     }
-
 }

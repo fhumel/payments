@@ -17,13 +17,13 @@ class WalletRepository implements WalletRepositoryInterface
     /** @var \Illuminate\Database\Eloquent\Builder */
     private $queryBuilder;
 
-    /** @var \App\Contracts\Users\Mappers\Wallets\WalletMapperInterface */
+    /** @var \App\Contracts\Users\Wallets\Mappers\WalletMapperInterface */
     private $walletMapper;
 
     /**
      * UserRepository constructor.
      * @param \App\Models\Users\Wallets\Wallet                                 $walletModel
-     * @param \App\Contracts\Users\Mappers\Wallets\WalletMapperInterface  $walletMapper
+     * @param \App\Contracts\Users\Wallets\Mappers\WalletMapperInterface  $walletMapper
      */
     public function __construct(WalletMapperInterface $walletMapper, Wallet $walletModel)
     {
@@ -71,7 +71,7 @@ class WalletRepository implements WalletRepositoryInterface
         $wallet = Wallet::find($id);
         $moneyWallet = number_format($wallet->money, 2);
 
-        if ($moneyWallet < $moneyRemove ) {
+        if ($moneyWallet < $moneyRemove) {
             abort(
                 \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST,
                 'Voce não possui saldo para tranferir.'

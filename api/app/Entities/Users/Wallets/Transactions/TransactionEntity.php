@@ -71,5 +71,4 @@ class TransactionEntity
     {
         $this->value = $value;
     }
-
 }

@@ -22,6 +22,14 @@ class TransactionService implements TransactionServiceInterface
 
     /** @var integer */
     public const LOGISTA = 2;
+    /**
+     * @var \App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface
+     */
+    private $walletRepository;
+    /**
+     * @var string
+     */
+    private $authorizerUri;
 
     /**
      * TransactionService constructor.
@@ -33,8 +41,8 @@ class TransactionService implements TransactionServiceInterface
     public function __construct(
         TransactionRepositoryInterface $transactionRepository,
         WalletRepositoryInterface $walletRepository,
-        string $authorizerUri)
-    {
+        string $authorizerUri
+    ) {
         $this->transactionRepository = $transactionRepository;
         $this->walletRepository = $walletRepository;
         $this->authorizerUri = $authorizerUri;
@@ -56,7 +64,7 @@ class TransactionService implements TransactionServiceInterface
 
         if ($mensage !== 'Autorizado') {
                 return false;
-            }
+        }
         return true;
     }
 
@@ -93,7 +101,7 @@ class TransactionService implements TransactionServiceInterface
 
         $userPayer = User::find($payer);
 
-        $transaction = DB::transaction(function() use ($value, $payer, $payee, $userPayer, $dados) {
+        $transaction = DB::transaction(function () use ($value, $payer, $payee, $userPayer, $dados) {
 
             if ($userPayer->type == UserRepositoryInterface::LOGISTA) {
                 abort(
@@ -139,5 +147,4 @@ class TransactionService implements TransactionServiceInterface
     {
         return $this->transactionRepository->list();
     }
-
 }
