@@ -64,7 +64,7 @@ abstract class DefaultRequest
      * @param \Illuminate\Contracts\Validation\Validator $validator
      * @throws \Illuminate\Validation\ValidationException
      */
-    protected function failedValidation(Validator $validator)
+    protected function failedValidation(Validator $validator): ValidationException
     {
         throw (
         new ValidationException(

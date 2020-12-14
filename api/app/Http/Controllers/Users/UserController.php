@@ -65,7 +65,7 @@ class UserController extends Controller
     public function list(): JsonResponse
     {
         try {
-            /** @var \App\Entities\Users\UserEntity $entidade */
+            /** @var \App\Entities\Users\UserEntity $colecao */
             $colecao = $this->userService->list();
 
             return response()->json(

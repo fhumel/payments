@@ -2,6 +2,8 @@
 
 namespace App\Entities\Users\Wallets;
 
+use App\Entities\Users\UserEntity;
+
 class WalletEntity
 {
     /** @var integer */
@@ -19,10 +21,10 @@ class WalletEntity
     }
 
     /**
-     * @param string|null $id
-     * @return UserEntity
+     * @param int|null $id
+     * @return \App\Entities\Users\Wallets\WalletEntity
      */
-    public function setId(?string $id): WalletEntity
+    public function setId(?int $id): WalletEntity
     {
         $this->id = $id;
         return $this;
@@ -38,7 +40,7 @@ class WalletEntity
 
     /**
      * @param float|null $money
-     * @return UserEntity
+     * @return WalletEntity
      */
     public function setMoney(?float $money): WalletEntity
     {

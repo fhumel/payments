@@ -8,9 +8,9 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    protected $service;
-    protected $params;
-    public $request;
+
+    protected array $params;
+    public Request $request;
 
     public function __construct(Request $request)
     {

@@ -21,8 +21,7 @@ class UserMapper implements UserMapperInterface
 
     /**
      * @param array $dados
-     * @throws \App\Exceptions\InvalidDocumentException
-     * @throws \App\Exceptions\InvalidEmailException
+     * @return \App\Entities\Users\UserEntity
      */
     public function map(array $dados): UserEntity
     {

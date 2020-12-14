@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\Wallets\WalletRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class WalletController extends Controller
 {
@@ -37,12 +38,7 @@ class WalletController extends Controller
         try {
             $dados = $request->getParams()->all();
 
-            /** @var WalletEntity $entidade */
             $entidade = $this->walletService->deposit($dados);
-
-            if ($entidade) {
-                //gerar um log de transaferencia
-            }
 
             return response()->json(
                 [
@@ -67,7 +63,7 @@ class WalletController extends Controller
     /**
      * /**
      * @param \App\Http\Requests\Users\Wallets\WalletRequest $request
-     * @return \App\Http\Controllers\Users\Wallets\Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function balance(WalletRequest $request): JsonResponse
     {

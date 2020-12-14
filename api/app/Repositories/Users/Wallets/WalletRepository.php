@@ -6,6 +6,7 @@ use App\Contracts\Users\Wallets\Mappers\WalletMapperInterface;
 use App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface;
 use App\Entities\Users\Wallets\WalletEntity;
 use App\Models\Users\Wallets\Wallet;
+use Exception;
 use Illuminate\Support\Facades\DB;
 
 class WalletRepository implements WalletRepositoryInterface
@@ -52,6 +53,8 @@ class WalletRepository implements WalletRepositoryInterface
             ->where('id', $id)
             ->update(['money' => $amount]);
 
+        $wallet = Wallet::find($dados['id']);
+        $wallet = $this->walletMapper->map($wallet->toArray());
 
         return $wallet;
     }
@@ -66,10 +69,10 @@ class WalletRepository implements WalletRepositoryInterface
 
         $id = $dados->getId();
         $money = $dados->getMoney();
-        $moneyRemove = number_format($money, 2);
+        $moneyRemove = (float)number_format($money, 2);
 
         $wallet = Wallet::find($id);
-        $moneyWallet = number_format($wallet->money, 2);
+        $moneyWallet = (float)number_format($wallet->money, 2);
 
         if ($moneyWallet < $moneyRemove) {
             abort(
@@ -104,13 +107,6 @@ class WalletRepository implements WalletRepositoryInterface
      */
     public function create(array $dados): Wallet
     {
-
-        $wallet = Wallet::create($dados);
-
-        if (!$wallet) {
-            throw new \Exception();
-        }
-
-        return $wallet;
+        return Wallet::create($dados);
     }
 }

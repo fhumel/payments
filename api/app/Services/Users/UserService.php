@@ -34,7 +34,7 @@ class UserService implements UserServiceInterface
     /**
      * @inheritDoc
      */
-    public function register($dados): User
+    public function register(array $dados): User
     {
 
         $dados['wallet']['money'] = 0;

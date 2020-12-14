@@ -17,4 +17,11 @@ interface UserRepositoryInterface
      * @return User
      */
     public function create(array $dados): User;
+
+        /**
+     * Método listar tarnsações
+     * @return array
+     * @throws \Exception
+     */
+    public function list(): array;
 }
