@@ -6,6 +6,7 @@ use App\Contracts\Users\Wallets\Mappers\WalletMapperInterface;
 use App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface;
 use App\Entities\Users\Wallets\WalletEntity;
 use App\Models\Users\Wallets\Wallet;
+use Exception;
 use Illuminate\Support\Facades\DB;
 
 class WalletRepository implements WalletRepositoryInterface
@@ -17,13 +18,13 @@ class WalletRepository implements WalletRepositoryInterface
     /** @var \Illuminate\Database\Eloquent\Builder */
     private $queryBuilder;
 
-    /** @var \App\Contracts\Users\Mappers\Wallets\WalletMapperInterface */
+    /** @var \App\Contracts\Users\Wallets\Mappers\WalletMapperInterface */
     private $walletMapper;
 
     /**
      * UserRepository constructor.
      * @param \App\Models\Users\Wallets\Wallet                                 $walletModel
-     * @param \App\Contracts\Users\Mappers\Wallets\WalletMapperInterface  $walletMapper
+     * @param \App\Contracts\Users\Wallets\Mappers\WalletMapperInterface  $walletMapper
      */
     public function __construct(WalletMapperInterface $walletMapper, Wallet $walletModel)
     {
@@ -52,6 +53,8 @@ class WalletRepository implements WalletRepositoryInterface
             ->where('id', $id)
             ->update(['money' => $amount]);
 
+        $wallet = Wallet::find($dados['id']);
+        $wallet = $this->walletMapper->map($wallet->toArray());
 
         return $wallet;
     }
@@ -66,12 +69,12 @@ class WalletRepository implements WalletRepositoryInterface
 
         $id = $dados->getId();
         $money = $dados->getMoney();
-        $moneyRemove = number_format($money, 2);
+        $moneyRemove = (float)number_format($money, 2);
 
         $wallet = Wallet::find($id);
-        $moneyWallet = number_format($wallet->money, 2);
+        $moneyWallet = (float)number_format($wallet->money, 2);
 
-        if ($moneyWallet < $moneyRemove ) {
+        if ($moneyWallet < $moneyRemove) {
             abort(
                 \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST,
                 'Voce não possui saldo para tranferir.'
@@ -104,13 +107,6 @@ class WalletRepository implements WalletRepositoryInterface
      */
     public function create(array $dados): Wallet
     {
-
-        $wallet = Wallet::create($dados);
-
-        if (!$wallet) {
-            throw new \Exception();
-        }
-
-        return $wallet;
+        return Wallet::create($dados);
     }
 }

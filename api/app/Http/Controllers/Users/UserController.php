@@ -17,12 +17,12 @@ class UserController extends Controller
     private UserServiceInterface $userService;
 
     /** @var \App\Contracts\Users\Mappers\UserMapperInterface */
-    private $userMapper;
+    private UserMapperInterface $userMapper;
 
     /**
      * UserController constructor.
-     * @param \App\Contracts\Users\Services\UserServiceInterface      $usuarioService
-     * @param \App\Contracts\Users\Mappers\UserMapperInterface $userMapper
+     * @param \App\Contracts\Users\Services\UserServiceInterface $userService
+     * @param \App\Contracts\Users\Mappers\UserMapperInterface   $userMapper
      */
     public function __construct(UserServiceInterface $userService, UserMapperInterface $userMapper)
     {
@@ -65,10 +65,11 @@ class UserController extends Controller
     public function list(): JsonResponse
     {
         try {
-            /** @var \App\Entities\Users\UserEntity $entidade */
+            /** @var \App\Entities\Users\UserEntity $colecao */
             $colecao = $this->userService->list();
 
-            return response()->json($colecao,
+            return response()->json(
+                $colecao,
                 Response::HTTP_FOUND
             );
         } catch (\Exception $exception) {

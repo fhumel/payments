@@ -2,7 +2,6 @@
 
 namespace App\Providers\Users;
 
-
 use App\Contracts\Users\Mappers\UserMapperInterface;
 use App\Contracts\Users\Repositories\UserRepositoryInterface;
 use App\Contracts\Users\Services\UserServiceInterface;

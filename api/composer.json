@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "7.4",
         "flipbox/lumen-generator": "^8.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
@@ -50,7 +50,7 @@
         "cs-fix": "phpcbf",
         "codequality": "./vendor/bin/phpmd ./app text phpmd",
         "codequality-stan": "./vendor/bin/phpstan analyse",
-        "cs-psr12-check": "phpcs --standard=PSR12 app/ tests/unit/"
+        "cs-psr12-check": "phpcs --standard=PSR12 app/ tests/"
     },
     "extra": {
         "phpstan": {

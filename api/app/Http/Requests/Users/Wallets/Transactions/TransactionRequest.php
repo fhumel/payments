@@ -10,7 +10,8 @@ class TransactionRequest extends Controller
     public function __construct(Request $request)
     {
         $this->validate(
-            $request, [
+            $request,
+            [
                 'value' => 'regex:/^\d+(\.\d{1,2})?$/',
                 'payer' => 'required|integer',
                 'payee' => 'required|integer',

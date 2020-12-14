@@ -3,13 +3,20 @@
 namespace App\Http\Controllers\Users\Wallets;
 
 use App\Contracts\Users\Wallets\Services\WalletServiceInterface;
+use App\Entities\Users\Wallets\WalletEntity;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\Wallets\WalletRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
-class WalletController  extends Controller
+class WalletController extends Controller
 {
+    /**
+     * @var \App\Contracts\Users\Wallets\Services\WalletServiceInterface
+     */
+    private WalletServiceInterface $walletService;
+
     /**
      * TransferController constructor.
      *
@@ -22,7 +29,7 @@ class WalletController  extends Controller
     }
 
     /**
-     * @param WalletRequest $transactionRequest
+     * @param \App\Http\Requests\Users\Wallets\WalletRequest $request
      * @return JsonResponse
      */
     public function deposit(WalletRequest $request): JsonResponse
@@ -31,12 +38,7 @@ class WalletController  extends Controller
         try {
             $dados = $request->getParams()->all();
 
-            /** @var WalletEntity $entidade */
             $entidade = $this->walletService->deposit($dados);
-
-            if ($entidade) {
-                //gerar um log de transaferencia
-            }
 
             return response()->json(
                 [
@@ -61,9 +63,9 @@ class WalletController  extends Controller
     /**
      * /**
      * @param \App\Http\Requests\Users\Wallets\WalletRequest $request
-     * @return \App\Http\Controllers\Users\Wallets\Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function balance(WalletRequest $request ): JsonResponse
+    public function balance(WalletRequest $request): JsonResponse
     {
         try {
             $dados = $request->getParams()->all();

@@ -9,10 +9,15 @@ class Wallet extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var string
      */
     protected $table = 'wallets';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'id', 'money', 'type'
     ];

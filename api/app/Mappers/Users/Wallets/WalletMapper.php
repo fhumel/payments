@@ -8,7 +8,7 @@ use App\Entities\Users\Wallets\WalletEntity;
 class WalletMapper implements WalletMapperInterface
 {
     /** @var \App\Entities\Users\Wallets\WalletEntity */
-    private $walletEntity;
+    private WalletEntity $walletEntity;
 
     /**
      * UserMapper constructor.
@@ -21,8 +21,7 @@ class WalletMapper implements WalletMapperInterface
 
     /**
      * @param array $dados
-     * @throws \App\Exceptions\InvalidDocumentException
-     * @throws \App\Exceptions\InvalidEmailException
+     * @return \App\Entities\Users\Wallets\WalletEntity
      */
     public function map(array $dados): WalletEntity
     {
@@ -37,7 +36,7 @@ class WalletMapper implements WalletMapperInterface
      * @param \App\Entities\Users\Wallets\WalletEntity $walletEntity
      * @return array
      */
-    public function revert(DefaultEntityInterface $walletEntity): array
+    public function revert(WalletEntity $walletEntity): array
     {
         return [
             'id' => $walletEntity->getId(),

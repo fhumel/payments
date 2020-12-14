@@ -2,7 +2,7 @@
 
 namespace App\Entities\Users;
 
-use App\Domain\Shared\ValueObjects\Cpf;
+use _HumbugBox87f0e7218981\phpDocumentor\Reflection\Types\Integer;
 
 class UserEntity
 {
@@ -19,13 +19,13 @@ class UserEntity
     private ?string $password = null;
 
     /** @var string */
-    private ?Cpf $cpf = null;
+    private ?string $cpf = null;
 
     /** @var string */
     private ?string $name = null;
 
     /** @var integer */
-    private ?string $type = null;
+    private ?int $type = null;
 
     /**
      * @return string
@@ -46,18 +46,18 @@ class UserEntity
     }
 
     /**
-     * @return integer
+     * @return int
      */
-    public function getType(): integer
+    public function getType(): int
     {
         return $this->type;
     }
 
     /**
-     * @param integer $type
+     * @param int $type
      * @return UserEntity
      */
-    public function setType(string $type): UserEntity
+    public function setType(int $type): UserEntity
     {
         $this->type = $type;
         return $this;
@@ -73,10 +73,10 @@ class UserEntity
 
 
     /**
-     * @param string|null $id
+     * @param int|null $id
      * @return UserEntity
      */
-    public function setId(?string $id): UserEntity
+    public function setId(?int $id): UserEntity
     {
         $this->id = $id;
         return $this;
@@ -145,7 +145,7 @@ class UserEntity
     }
 
     /**
-     * @param string $name
+     * @param string $cpf
      * @return UserEntity
      */
     public function setCpf(string $cpf): UserEntity
