@@ -11,6 +11,7 @@ use App\Models\Users\Wallets\Transactions\Transaction;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\Types\Integer;
+use Symfony\Component\HttpFoundation\Response;
 
 class TransactionService implements TransactionServiceInterface
 {
@@ -55,19 +56,16 @@ class TransactionService implements TransactionServiceInterface
     public function authorize(): bool
     {
 
-
-
         $client = new Client();
 
         $response = $client->request('GET', env('AUTHORIZER'));
 
-        $body = \GuzzleHttp\json_decode($response->getBody()->getContents());
+        $statusCode = \GuzzleHttp\json_encode($response->getStatusCode());
 
-        $mensage = $body->message;
-
-        if ($mensage !== 'Autorizado') {
-                return false;
+        if (!$statusCode == Response::HTTP_OK) {
+            return false;
         }
+
         return true;
     }
 
@@ -81,11 +79,9 @@ class TransactionService implements TransactionServiceInterface
 
         $response = $client->request('GET', env('PAYMENT'));
 
-        $body = \GuzzleHttp\json_decode($response->getBody()->getContents());
+        $statusCode = \GuzzleHttp\json_encode($response->getStatusCode());
 
-        $mensage = $body->message;
-
-        if ($mensage !== 'Enviado') {
+        if (!$statusCode == Response::HTTP_OK) {
             return false;
         }
 
@@ -95,7 +91,6 @@ class TransactionService implements TransactionServiceInterface
     public function validate(int $userPayer): bool
     {
         $userPayer = User::find($userPayer);
-
 
         if ($userPayer->type === UserRepositoryInterface::LOGISTA) {
                 abort(
@@ -138,8 +133,6 @@ class TransactionService implements TransactionServiceInterface
                 ['id' => $payee, 'money' => $value]
             );
 
-
-
             if (!$this->payment()) {
                 abort(
                     \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST,
@@ -150,7 +143,6 @@ class TransactionService implements TransactionServiceInterface
             return $this->transactionRepository->pay($dados);
         });
     }
-
 
     /**
      * @inheritDoc
