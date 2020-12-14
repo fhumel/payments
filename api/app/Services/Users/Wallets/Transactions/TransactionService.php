@@ -10,6 +10,7 @@ use App\Models\Users\User;
 use App\Models\Users\Wallets\Transactions\Transaction;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\Integer;
 
 class TransactionService implements TransactionServiceInterface
 {
@@ -22,6 +23,14 @@ class TransactionService implements TransactionServiceInterface
 
     /** @var integer */
     public const LOGISTA = 2;
+    /**
+     * @var \App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface
+     */
+    private $walletRepository;
+    /**
+     * @var string
+     */
+    private $authorizerUri;
 
     /**
      * TransactionService constructor.
@@ -33,8 +42,8 @@ class TransactionService implements TransactionServiceInterface
     public function __construct(
         TransactionRepositoryInterface $transactionRepository,
         WalletRepositoryInterface $walletRepository,
-        string $authorizerUri)
-    {
+        string $authorizerUri
+    ) {
         $this->transactionRepository = $transactionRepository;
         $this->walletRepository = $walletRepository;
         $this->authorizerUri = $authorizerUri;
@@ -46,9 +55,11 @@ class TransactionService implements TransactionServiceInterface
     public function authorize(): bool
     {
 
+
+
         $client = new Client();
 
-        $response =     $client->request('GET', env('AUTHORIZER'));
+        $response = $client->request('GET', env('AUTHORIZER'));
 
         $body = \GuzzleHttp\json_decode($response->getBody()->getContents());
 
@@ -56,7 +67,7 @@ class TransactionService implements TransactionServiceInterface
 
         if ($mensage !== 'Autorizado') {
                 return false;
-            }
+        }
         return true;
     }
 
@@ -81,33 +92,41 @@ class TransactionService implements TransactionServiceInterface
         return true;
     }
 
+    public function validate(int $userPayer): bool
+    {
+        $userPayer = User::find($userPayer);
+
+
+        if ($userPayer->type === UserRepositoryInterface::LOGISTA) {
+                abort(
+                    \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST,
+                    'Não é possivel tranferir dinheiro com sendo tipo logista.'
+                );
+        }
+
+
+        if (!$this->authorize()) {
+                abort(
+                    \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST,
+                    'Serviço não Autorizado.'
+                );
+        }
+        return true;
+    }
+
     /**
      * @inheritDoc
      */
-    public function pay($dados): Transaction
+    public function pay(array $dados): Transaction
     {
 
         $value = $dados['value'];
         $payer = $dados['payer'];
         $payee = $dados['payee'];
 
-        $userPayer = User::find($payer);
+        return DB::transaction(function () use ($value, $payer, $payee, $dados) {
 
-        $transaction = DB::transaction(function() use ($value, $payer, $payee, $userPayer, $dados) {
-
-            if ($userPayer->type == UserRepositoryInterface::LOGISTA) {
-                abort(
-                    \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST,
-                    'Não é possivel tranferir dinheiro com sendo tipo logista.'
-                );
-            }
-
-            if (!$this->authorize()) {
-                abort(
-                    \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST,
-                    'Serviço não Autorizado.'
-                );
-            }
+            $this->validate($payer);
 
             /** @var WalletRepositoryInterface $payee */
             $this->walletRepository->withdrawn(
@@ -119,6 +138,8 @@ class TransactionService implements TransactionServiceInterface
                 ['id' => $payee, 'money' => $value]
             );
 
+
+
             if (!$this->payment()) {
                 abort(
                     \Symfony\Component\HttpFoundation\Response::HTTP_BAD_REQUEST,
@@ -128,7 +149,6 @@ class TransactionService implements TransactionServiceInterface
 
             return $this->transactionRepository->pay($dados);
         });
-        return $transaction;
     }
 
 
@@ -139,5 +159,4 @@ class TransactionService implements TransactionServiceInterface
     {
         return $this->transactionRepository->list();
     }
-
 }

@@ -1,5 +1,5 @@
-# Rotas da aplicação
-**Método:** `POST`
+# Rotas da aplicaï¿½ï¿½o
+**Mï¿½todo:** `POST`
 
 **Endpoint:** `/user`
 
@@ -25,11 +25,14 @@
 **Response (201 - Created):**
 ```
 {
-    "id": "30c23497-a39b-4234-8e31-e9b3210d4c73",
-    "cpf": "558.895.950-75",
-    "name": "Fernando",
-    "email": "fhumel@hotmail.com",
-    "type": "comum"
+   "descricao" => "UsuÃ¡rio criado com sucesso.",
+   "user" => {
+        "id": "1",
+        "cpf": "558.895.950-75",
+        "name": "Fernando",
+        "email": "fhumel@hotmail.com",
+        "type": "comum"
+    {
 }
 ```
 
@@ -51,7 +54,7 @@
 }
 ```
 
-**Método:** `POST`
+**MÃ©todo:** `POST`
 
 **Endpoint:** `/deposit`
 
@@ -73,7 +76,7 @@
 }
 ```
 
-**Método:** `POST`
+**Mï¿½todo:** `POST`
 
 **Endpoint:** `/transaction`
 
@@ -93,7 +96,7 @@
     "money" => 510.20,
 }
 ```
-**Método:** `GET`
+**MÃ©todo:** `GET`
 
 **Endpoint:** `/balance`
 
@@ -118,7 +121,7 @@
 }
 ```
 
-**Método:** `GET`
+**Mï¿½todo:** `GET`
 
 **Endpoint:** `/transaction`
 
@@ -143,7 +146,7 @@
 }
 ```
 
-**Método:** `GET`
+**Mï¿½todo:** `GET`
 
 **Endpoint:** `/list`
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users\Wallets\Transactions;
 
 use App\Contracts\Users\Wallets\Transactions\Services\TransactionServiceInterface;
+use App\Entities\Users\Wallets\WalletEntity;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Users\Wallets\Transactions\TransactionRequest;
 use Illuminate\Http\JsonResponse;
@@ -11,6 +12,11 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class TransactionController extends Controller
 {
+    /**
+     * @var \App\Contracts\Users\Wallets\Transactions\Services\TransactionServiceInterface
+     */
+    private $transactionService;
+
     /**
      * TransactionController constructor.
      *
@@ -50,7 +56,8 @@ class TransactionController extends Controller
 
             return response()->json([
                 'codigo' => $statusCode,
-                'descricao' => 'Não foi possível fazer a transferencia no momento.']);
+                'descricao' => $exception->getMessage()
+                                    ]);
         }
     }
 
@@ -61,13 +68,15 @@ class TransactionController extends Controller
     public function list(): JsonResponse
     {
         try {
-            /** @var \App\Entities\Users\Wallets\Transactions\TransactionEntity $entidade */
+            /** @var \App\Entities\Users\Wallets\Transactions\TransactionEntity $colecao */
             $colecao = $this->transactionService->list();
 
-            return response()->json($colecao,
+            return response()->json(
+                $colecao,
                 Response::HTTP_FOUND
             );
         } catch (\Exception $exception) {
+
             /** @var int $statusCode */
             $statusCode = $exception instanceof HttpException
                 ? $exception->getStatusCode() : Response::HTTP_BAD_REQUEST;

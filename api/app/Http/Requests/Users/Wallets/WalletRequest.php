@@ -10,7 +10,8 @@ class WalletRequest extends Controller
     public function __construct(Request $request)
     {
         $this->validate(
-            $request, [
+            $request,
+            [
                 'id' => 'integer',
                 'money' => 'regex:/^\d+(\.\d{1,2})?$/',
                 'type' => 'string',

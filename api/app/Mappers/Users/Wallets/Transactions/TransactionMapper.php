@@ -8,7 +8,7 @@ use App\Entities\Users\Wallets\Transactions\TransactionEntity;
 class TransactionMapper implements TransactionMapperInterface
 {
     /** @var TransactionEntity */
-    private $transactionEntity;
+    private TransactionEntity $transactionEntity;
 
     /**
      * TransactionMapper constructor.
@@ -21,12 +21,11 @@ class TransactionMapper implements TransactionMapperInterface
 
     /**
      * @param array $dados
-     * @throws \App\Exceptions\InvalidDocumentException
-     * @throws \App\Exceptions\InvalidEmailException
+     * @return TransactionEntity
      */
     public function map(array $dados): TransactionEntity
     {
-        $transactionEntity = clone $this->walletTypeEntity;
+        $transactionEntity = clone $this->transactionEntity;
         isset($dados['id']) ? $transactionEntity->setId($dados['id']) : $transactionEntity->setId(null);
         $transactionEntity
             ->setValue($dados['value'])
@@ -39,7 +38,7 @@ class TransactionMapper implements TransactionMapperInterface
      * @param TransactionEntity $transactionEntity
      * @return array
      */
-    public function revert($transactionEntity): array
+    public function revert(TransactionEntity $transactionEntity): array
     {
         return [
             'id' => $transactionEntity->getId(),

@@ -14,7 +14,7 @@ class TransactionEntity
     private int $payee;
 
     /** @var float */
-    private int $value;
+    private float $value;
 
     /**
      * @return integer
@@ -22,6 +22,16 @@ class TransactionEntity
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+        /**
+     * @param int|null $id
+     * @return TransactionEntity
+     */
+    public function setId(?int $id): TransactionEntity
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -34,10 +44,12 @@ class TransactionEntity
 
     /**
      * @param integer $payer
+     * @return \App\Entities\Users\Wallets\Transactions\TransactionEntity
      */
     public function setPayer(int $payer): TransactionEntity
     {
         $this->payer = $payer;
+         return $this;
     }
 
     /**
@@ -50,10 +62,12 @@ class TransactionEntity
 
     /**
      * @param integer $payee
+     * @return \App\Entities\Users\Wallets\Transactions\TransactionEntity
      */
     public function setPayee(int $payee): TransactionEntity
     {
         $this->payee = $payee;
+         return $this;
     }
 
     /**
@@ -66,10 +80,11 @@ class TransactionEntity
 
     /**
      * @param float $value
+     * @return \App\Entities\Users\Wallets\Transactions\TransactionEntity
      */
-    public function setValur(int $value): TransactionEntity
+    public function setValue(float $value): TransactionEntity
     {
         $this->value = $value;
+         return $this;
     }
-
 }

@@ -9,10 +9,15 @@ class Transaction extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var string
      */
     protected $table = 'transactions';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'id', 'payer', 'payee', 'value',
     ];

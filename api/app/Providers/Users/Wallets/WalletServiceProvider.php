@@ -2,7 +2,6 @@
 
 namespace App\Providers\Users\Wallets;
 
-
 use App\Contracts\Users\Wallets\Mappers\WalletMapperInterface;
 use App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface;
 use App\Contracts\Users\Wallets\Services\WalletServiceInterface;

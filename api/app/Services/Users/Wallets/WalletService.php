@@ -9,13 +9,13 @@ use App\Entities\Users\Wallets\WalletEntity;
 class WalletService implements WalletServiceInterface
 {
 
-    /** @var \App\Repositories\Wallets\WalletRepositoryInterface */
-    private $walletRepository;
+    /** @var \App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface */
+    private WalletRepositoryInterface $walletRepository;
 
     /**
      * TransactionService constructor.
      *
-     * @param \App\Repositories\Wallets\WalletRepositoryInterface $walletRepository
+     * @param \App\Contracts\Users\Wallets\Repositories\WalletRepositoryInterface $walletRepository
      */
     public function __construct(WalletRepositoryInterface $walletRepository)
     {
@@ -25,7 +25,7 @@ class WalletService implements WalletServiceInterface
     /**
      * @inheritDoc
      */
-    public function balance($dados): array
+    public function balance(array $dados): array
     {
         return $this->walletRepository->balance($dados);
     }
@@ -33,7 +33,7 @@ class WalletService implements WalletServiceInterface
     /**
      * @inheritDoc
      */
-    public function deposit($dados): WalletEntity
+    public function deposit(array $dados): WalletEntity
     {
         return $this->walletRepository->deposit($dados);
     }

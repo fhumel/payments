@@ -17,15 +17,4 @@ class ExampleListener
     {
         //
     }
-
-    /**
-     * Handle the event.
-     *
-     * @param  \App\Events\ExampleEvent  $event
-     * @return void
-     */
-    public function handle(ExampleEvent $event)
-    {
-        //
-    }
 }
